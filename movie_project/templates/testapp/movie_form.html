@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container" align="center">
+        <div class="inside">
+            {% if submitted %}
+            <p>Movie is added successfully </p>
+            <button id="btn1"><a href="{% url 'index' %}">Home</a></button>
+            {% else %}
+            <form action="" method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" id='btn1' >
+            </form>
+            {% endif %}
+
+        </div>
+    </div>
+    
+</body>
+</html>
